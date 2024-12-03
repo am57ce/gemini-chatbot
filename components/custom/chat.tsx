@@ -1,8 +1,7 @@
 "use client";
 
-import { Attachment, Message } from "ai";
+import { Message } from "ai";
 import { useChat } from "ai/react";
-import { useState } from "react";
 
 import { Message as PreviewMessage } from "@/components/custom/message";
 import { useScrollToBottom } from "@/components/custom/use-scroll-to-bottom";
@@ -14,8 +13,8 @@ export function Chat({
   id,
   initialMessages,
 }: {
-  id: string;
-  initialMessages: Array<Message>;
+  id?: string;
+  initialMessages?: Array<Message>;
 }) {
   const { messages, handleSubmit, input, setInput, append, isLoading, stop } =
     useChat({
@@ -31,8 +30,6 @@ export function Chat({
   const [messagesContainerRef, messagesEndRef] =
     useScrollToBottom<HTMLDivElement>();
 
-  const [attachments, setAttachments] = useState<Array<Attachment>>([]);
-
   return (
     <div className="flex flex-row justify-center pb-4 md:pb-8 h-dvh bg-background">
       <div className="flex flex-col justify-between items-center gap-4">
@@ -45,7 +42,7 @@ export function Chat({
           {messages.map((message) => (
             <PreviewMessage
               key={message.id}
-              chatId={id}
+              chatId={"1"}
               role={message.role}
               content={message.content}
               attachments={message.experimental_attachments}
@@ -59,15 +56,13 @@ export function Chat({
           />
         </div>
 
-        <form className="flex flex-row gap-2 relative items-end w-full md:max-w-[500px] max-w-[calc(100dvw-32px) px-4 md:px-0">
+        <form className="flex flex-row gap-2 relative items-end w-full md:w-[700px] max-w-[calc(100dvw-32px) px-4 md:px-0">
           <MultimodalInput
             input={input}
             setInput={setInput}
             handleSubmit={handleSubmit}
             isLoading={isLoading}
             stop={stop}
-            attachments={attachments}
-            setAttachments={setAttachments}
             messages={messages}
             append={append}
           />

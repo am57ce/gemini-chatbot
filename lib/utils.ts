@@ -8,8 +8,6 @@ import {
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
-import { Chat } from "@/db/schema";
-
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
@@ -24,7 +22,7 @@ export const fetcher = async (url: string) => {
 
   if (!res.ok) {
     const error = new Error(
-      "An error occurred while fetching the data.",
+      "An error occurred while fetching the data."
     ) as ApplicationError;
 
     error.info = await res.json();
@@ -64,7 +62,7 @@ function addToolMessageToChat({
         ...message,
         toolInvocations: message.toolInvocations.map((toolInvocation) => {
           const toolResult = toolMessage.content.find(
-            (tool) => tool.toolCallId === toolInvocation.toolCallId,
+            (tool) => tool.toolCallId === toolInvocation.toolCallId
           );
 
           if (toolResult) {
@@ -85,7 +83,7 @@ function addToolMessageToChat({
 }
 
 export function convertToUIMessages(
-  messages: Array<CoreMessage>,
+  messages: Array<CoreMessage>
 ): Array<Message> {
   return messages.reduce((chatMessages: Array<Message>, message) => {
     if (message.role === "tool") {
@@ -124,15 +122,4 @@ export function convertToUIMessages(
 
     return chatMessages;
   }, []);
-}
-
-export function getTitleFromChat(chat: Chat) {
-  const messages = convertToUIMessages(chat.messages as Array<CoreMessage>);
-  const firstMessage = messages[0];
-
-  if (!firstMessage) {
-    return "Untitled";
-  }
-
-  return firstMessage.content;
 }
