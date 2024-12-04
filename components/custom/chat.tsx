@@ -2,10 +2,12 @@
 
 import { Message } from "ai";
 import { useChat } from "ai/react";
+import { useState, useEffect } from "react";
 
 import { Message as PreviewMessage } from "@/components/custom/message";
 import { useScrollToBottom } from "@/components/custom/use-scroll-to-bottom";
 
+import Gems from "./gems";
 import { MultimodalInput } from "./multimodal-input";
 import { Overview } from "./overview";
 
@@ -16,10 +18,19 @@ export function Chat({
   id?: string;
   initialMessages?: Array<Message>;
 }) {
+  const [gem, setGem] = useState("normal");
+
+  useEffect(() => {
+    const gemFromUrl = new URLSearchParams(window.location.search).get("gem");
+    if (gemFromUrl) {
+      setGem(gemFromUrl);
+    }
+  }, []);
+
   const { messages, handleSubmit, input, setInput, append, isLoading, stop } =
     useChat({
       id,
-      body: { id },
+      body: { id, gem },
       initialMessages,
       maxSteps: 10,
       onFinish: () => {
@@ -32,7 +43,10 @@ export function Chat({
 
   return (
     <div className="flex flex-row justify-center pb-4 md:pb-8 h-dvh bg-background">
-      <div className="flex flex-col justify-between items-center gap-4">
+      <div className="absolute right-4 bottom-28 md:bottom-32 lg:top-20 lg:left-4">
+        <Gems gem={gem} setGem={setGem} />
+      </div>
+      <div className="flex flex-col justify-between items-center gap-4 mt-4 md:mt-0">
         <div
           ref={messagesContainerRef}
           className="flex flex-col gap-4 h-full w-dvw items-center overflow-y-scroll"

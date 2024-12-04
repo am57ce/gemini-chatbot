@@ -7,7 +7,7 @@ export const Overview = () => {
   return (
     <motion.div
       key="overview"
-      className="max-w-[500px] mt-20 mx-4 md:mx-0"
+      className="max-w-[500px] mt-24 sm:mt-20 mx-4 md:mx-0"
       initial={{ opacity: 0, scale: 0.98 }}
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.98 }}
@@ -23,10 +23,23 @@ export const Overview = () => {
           This is a Human Computer Interaction based Chatbot powered by the
           Google Gemini model built with Next.js by.
         </p>
-        <ul>
-          <li>Rehan Ahmed (22-CS-68)</li>
-          <li>Habib Sultan (22-CS-67)</li>
-          <li>Ashar Mehmood (22-CS-02)</li>
+        <ul className="flex flex-wrap sm:flex-nowrap gap-2 self-center mx-auto">
+          <li className="flex flex-col items-start min-w-max px-2 py-1 rounded-lg bg-green-500 text-white">
+            <span>Rehan Ahmed</span>
+            <span>(22-CS-68)</span>
+          </li>
+          <li className="flex flex-col items-start min-w-max px-2 py-1 rounded-lg bg-green-500 text-white">
+            <span>Habib Sultan</span>
+            <span>(22-CS-67)</span>
+          </li>
+          <li className="flex flex-col items-start min-w-max px-2 py-1 rounded-lg bg-green-500 text-white">
+            <span>Arham Ali Khan</span>
+            <span>(22-CS-95)</span>
+          </li>
+          <li className="flex flex-col items-start min-w-max px-2 py-1 rounded-lg bg-green-500 text-white">
+            <span>Ashar Mehmood</span>
+            <span>(22-CS-02)</span>
+          </li>
         </ul>
       </div>
     </motion.div>

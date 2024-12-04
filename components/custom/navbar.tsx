@@ -14,7 +14,7 @@ import {
 export const Navbar = async () => {
   return (
     <>
-      <div className="bg-background absolute top-0 left-0 w-dvw py-2 px-3 justify-between flex flex-col-reverse sm:flex-row gap-4 items-center z-30">
+      <div className="bg-background absolute top-0 left-0 w-dvw py-2 px-3 justify-between flex flex-col-reverse md:flex-row gap-4 items-center z-30">
         <div className="flex flex-row gap-3 items-center">
           <div className="flex flex-row gap-2 items-center">
             <Image
@@ -26,7 +26,7 @@ export const Navbar = async () => {
             <div className="text-zinc-500">
               <SlashIcon size={16} />
             </div>
-            <div className="text-sm dark:text-zinc-300 truncate w-28 md:w-fit">
+            <div className="text-sm dark:text-zinc-300 w-fit">
               HCI Project: AI Chatbot
             </div>
           </div>
@@ -38,7 +38,7 @@ export const Navbar = async () => {
               className="py-1.5 px-2 h-fit font-normal"
               variant="secondary"
             >
-              {"Made with ❤️ by Ashar, Rehan and Habib"}
+              Made with ❤️ by Ashar, Rehan, Habib and Arham
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
