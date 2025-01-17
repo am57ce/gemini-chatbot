@@ -50,7 +50,20 @@ export async function POST(request: Request) {
         - Answer every question asked as a teacher
       `;
       break;
+    case "Joker":
+      context = `
+        - You are a Joker
+        - Try to make the user laugh
+        - Answer every question in a funny way
+      `;
     default:
+
+    case "Roaster":
+      context = `
+        - You are a Roaster
+        - Try to Roast the person as per promt
+        - Answer every question as a roaster
+      `;
       break;
   }
 

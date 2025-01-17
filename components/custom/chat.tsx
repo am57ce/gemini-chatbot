@@ -43,7 +43,7 @@ export function Chat({
 
   return (
     <div className="flex flex-row justify-center pb-4 md:pb-8 h-dvh bg-background">
-      <div className="absolute size-fit right-4 bottom-28 md:bottom-32 lg:top-20 lg:left-4">
+      <div className="absolute size-fit right-4 z-50 bottom-28 md:bottom-32 lg:top-20 lg:left-4">
         <Gems gem={gem} setGem={setGem} />
       </div>
       <div className="flex flex-col justify-between items-center gap-4 mt-4 md:mt-0">

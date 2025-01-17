@@ -21,10 +21,10 @@ const Gems = ({ gem, setGem }: { gem: string; setGem: any }) => {
       <DropdownMenu>
         <DropdownMenuTrigger className="border-2 border-green-500 p-2 rounded-md bg-[#27272a]">
           <span className="flex gap-2">
-            <p className="font-bold capitalize">
+            <p className="font-bold capitalize text-white">
               {gem === "normal" ? `Try Gems` : gem}
             </p>
-            <GemIcon />
+            <GemIcon className="text-white" />
           </span>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-full">
@@ -44,6 +44,9 @@ const Gems = ({ gem, setGem }: { gem: string; setGem: any }) => {
           </DropdownMenuItem>
           <DropdownMenuItem onSelect={() => handleSelect("teacher")}>
             Teacher
+          </DropdownMenuItem>
+          <DropdownMenuItem onSelect={() => handleSelect("Joker")}>
+            Joker
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

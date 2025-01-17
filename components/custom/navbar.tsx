@@ -38,7 +38,7 @@ export const Navbar = async () => {
               className="py-1.5 px-2 h-fit font-normal"
               variant="secondary"
             >
-              Made with ❤️ by Ashar, Rehan, Habib and Arham
+              Made with ❤️ by Ashar, Rehan, Habib.
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">

@@ -32,10 +32,10 @@ export const Overview = () => {
             <span>Habib Sultan</span>
             <span>(22-CS-67)</span>
           </li>
-          <li className="flex flex-col items-start min-w-max px-2 py-1 rounded-lg bg-green-500 text-white">
+          {/* <li className="flex flex-col items-start min-w-max px-2 py-1 rounded-lg bg-green-500 text-white">
             <span>Arham Ali Khan</span>
             <span>(22-CS-95)</span>
-          </li>
+          </li> */}
           <li className="flex flex-col items-start min-w-max px-2 py-1 rounded-lg bg-green-500 text-white">
             <span>Ashar Mehmood</span>
             <span>(22-CS-02)</span>
